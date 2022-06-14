@@ -60,5 +60,51 @@ def demo4():
         print(" ")
 
 
+# 找出单词 “welcome” 在 字符串”Hello, welcome to my world.” 中出现的位置，找不到返回-1
+# 从下标0开始索引
+def demo5():
+    """
+     find() 方法检测字符串中是否包含子字符串 str,如果指定 beg（开始） 和 end（结束） 范围，
+     则检查是否包含在指定范围内，如果包含子字符串 返回开始的索引值，否则返回-1。
+    """
+    a = "Hello, welcome to my world."
+    b = "welcome"
+    if b in a:
+        print(a.find(b))
+    else:
+        print("-1")
+
+
+# 统计字符串“Hello, welcome to my world.” 中字母w出现的次数
+# 统计单词 my 出现的次数
+def demo6():
+    """
+    count() 方法用于统计字符串里某个字符或子字符串出现的次数
+    """
+    i = 0
+    a = "Hello, welcome to my world."
+    for j in a:
+        if "o" in j:
+            i = i + 1
+    print(i, a.count("my"))
+
+
+# 输入一个字符串str, 输出第m个只出现过n次的字符，如在字符串 gbgkkdehh 中,
+# 找出第2个只出现1 次的字符，输出结果：d
+def demo7(a, b, c):
+    """
+    :param a:字符串
+    :param b:第几次出现的
+    :param c:出现次数
+    :return:
+    """
+    i = 0
+    for j in a:
+        if a.count(j) == c:
+            i += 1
+            if i == b:
+                print(j)
+
+
 if __name__ == '__main__':
-    demo4()
+    demo7("gbgkkdehh", 2, 1)
