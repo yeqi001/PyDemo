@@ -32,7 +32,7 @@ def demo2():
 # 输出：”We%20are%20happy.”
 def demo3():
     """
-    replace
+    replace() 方法把字符串中的 old（旧字符串） 替换成 new(新字符串)，如果指定第三个参数max，则替换不超过 max 次。
     """
     s = "We are happy."
     # i = ''
@@ -106,5 +106,96 @@ def demo7(a, b, c):
                 print(j)
 
 
+# 判断字符串a=”welcome to my world” 是否包含单词b=”world”,包含返回True，不包含返回 False
+def demo8():
+    a = "welcome to my world"
+    b = "worla"
+    # 判断b存在次数，非0为"True"
+    if a.count(b):
+        # if b in a:
+        print("True")
+    else:
+        print("False")
+
+
+# 输出指定字符串A在字符串B中第一次出现的位置,如果B中不包含A,则输出-1
+# 从 0 开始计数
+# A = “hello”
+# B = “hi how are you hello world, hello yoyo !”
+def demo9():
+    A = "hello"
+    B = "hi how are you hello world, hello yoyo !"
+    print(B.find(A))
+
+
+# 输出指定字符串A在字符串B中最后出现的位置,如果B中不包含A, 出-1从 0 开始计数
+# A = “hello”
+# B = “hi how are you hello world, hello yoyo !”
+def demo10():
+    A = "hello"
+    B = "hi how are you hello world, hello yoyo !"
+    i = -1
+    while True:
+        C = B.find(A, i + 1)
+        if C == -1:
+            print(i)
+            break
+        else:
+            i = C
+
+
+# 给定一个数a，判断一个数字是否为奇数或偶数 ,a1 = 13,a2 = 10
+def demo11():
+    """
+    int() 函数用于将一个数字字符串或数字转换为整型。
+    float() 函数用于将整数和字符串转换成浮点数。
+    :return:
+    """
+    while True:
+        # try:
+        # a=int(input("1:"))
+        a = int("123")
+        # except ValueError:
+        #    print("1")
+        #    continue
+        if a % 2 == 0:
+            print("偶数")
+            break
+        else:
+            print(type(a), "奇数")
+            break
+
+
+# 输入一个姓名，判断是否姓王,a = “王五”,b = “老王
+def demo12():
+    a = input("姓名：")
+    if a[0] == "王":
+        print("姓王")
+    else:
+        print("不姓王")
+
+
+# 如何判断一个字符串是不是纯数字组成  a = “123456”  b = “yoyo123”
+def demo13(a):
+    try:
+        float(a)
+        print("是")
+    except ValueError:
+        print("不是")
+
+
+# 将字符串 a = “This is string example….wow!” 全部转成大写
+# 字符串 b = “Welcome To My World” 全部转成小写
+def demo14():
+    """
+    upper() 方法将字符串中的小写字母转为大写字母
+    lower() 方法转换字符串中所有大写字符为小写。
+    :return:
+    """
+    a = "This is string example….wow!"
+    b = "Welcome To My World"
+    print(a.upper(), a.lower())
+
+
 if __name__ == '__main__':
-    demo7("gbgkkdehh", 2, 1)
+    demo14()
