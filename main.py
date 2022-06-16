@@ -197,5 +197,93 @@ def demo14():
     print(a.upper(), a.lower())
 
 
+# 将字符串 a = “ welcome to my world “首尾空格去掉
+def demo15():
+    a = " welcome to my world "
+    print(a.strip(" "))
+
+
+# 打印菱形
+def demo16():
+    # a = int(input("菱形长度："))
+    a = 9
+    for i in range(int(a / 2) + 1):  # 先打印上面一半（包括最长的一行）
+        for j in range(int(a / 2) - i):  # i=0的时候打印第一行
+            print(end=" ")  # 每行遍历的时候通过end只打印“ ”不换行
+        for k in range(2 * i + 1):  # i=0的时候先打印上面循环的空格，然后开始遍历每行的“*”
+            print("*", end="")  # 每行遍历的时候通过end只打印“*”不换行
+        print("")  # 每一行打印完之后进行换行操作
+    for q in range(int(a / 2)):  # 打印下面的一半，其他原理同上
+        for w in range(q + 1):
+            print(end=" ")
+        for e in range(a - 2 * (q + 1)):
+            print("*", end="")
+        print("")
+
+
+# 题目 给一个不多于5位的正整数，要求：
+# 一、求它是几位数，
+# 二、逆序打印出各位数字。
+# a = 12345
+def demo17():
+    """
+    ‘/’：传统除法，输出为浮点数
+    ‘//’：（地板除），结果取整数部分
+    ‘%’：结果取余数部分
+    :return:
+    """
+    a = 1512
+    b = 0
+    c = str(a)
+    d = c[::-1]
+    print(d)
+    while a != 0:
+        b += 1
+        a = a // 10
+    print(b)
+
+
+# 如果一个 3 位数等于其各位数字的立方和，则称这个数为水仙花数。
+# 例如：153 = 1^3 + 5^3 + 3^3，因此 153 就是一个水仙花数
+# 那么问题来了，求1000以内的水仙花数（3位数）
+def demo18():
+    for a in range(100, 1000):
+        b = str(a)
+        c = list(b)
+        if a == int(c[0]) ** 3 + int(c[1]) ** 3 + int(c[2]) ** 3:
+            print(a)
+
+
+# 求1+2+3…+100和
+def demo19():
+    sum = 0
+    for i in range(1, 101):
+        sum += i
+    print(sum)
+
+
+# 计算求1-2+3-4+5-…-100的值
+def demo20():
+    a = b = 0
+    for i in range(1, 101):
+        if i % 2 != 0:
+            a += i
+        else:
+            b -= i
+    print(a + b)
+
+
+# 计算公式 13 + 23 + 33 + 43 + …….+ n3
+# 实现要求：
+# 输入 : n = 5
+# 输出 : 165
+# 对应的公式 : 13 + 23 + 33 + 43 + 53 = 165
+def demo21(n):
+    sum = 0
+    for i in range(1, n + 1):
+        sum += i * 10 + 3
+    print(sum)
+
+
 if __name__ == '__main__':
-    demo14()
+    demo21(5)
