@@ -285,5 +285,150 @@ def demo21(n):
     print(sum)
 
 
+# 已知 a的值为”hello”，b的值为”world”，如何交换a和b的值？
+# 得到a的值为”world”，b的值为”hello”
+def demo22():
+    a = "hello"
+    b = "world"
+    c = b
+    b = a
+    a = c
+    print(a, b)
+
+
+# 如何判断一个数组是对称数组：
+# 要求：判断数组元素是否对称。例如[1，2，0，2，1]，[1，2，3，3，2，1]这样的都是对称数组
+# 用Python代码判断，是对称数组打印True，不是打印False,如：
+# x = [1, “a”, 0, “2”, 0, “a”, 1]
+def demo23():
+    x = [1, "a", 0, "2", 0, "a", 1]
+    j = 0
+    # for i in range(len(x)//2):
+    #     if x[i]==x[-(i+1)]:
+    #         j+=1
+    # if j ==len(x)//2:
+    #     print("True")
+    # else:
+    #     print("False")
+    if x == x[::-1]:
+        print("True")
+    else:
+        print("False")
+
+
+# 如果有一个列表a=[1,3,5,7,11]
+# 问题：1如何让它反转成[11,7,5,3,1]
+# 2.取到奇数位值的数字，如[1,5,11]
+def demo24():
+    a = [1, 3, 5, 7, 11]
+    print(a[::-1])
+    print(a[::2])
+
+
+# 问题：对列表a 中的数字从小到大排序
+# a = [1, 6, 8, 11, 9, 1, 8, 6, 8, 7, 8]
+def demo25():
+    """
+    sorted() 函数对所有可迭代的对象进行排序操作，操作之后原对象依然存在
+    sorted(iterable, key=None, reverse=False)
+    iterable -- 可迭代对象。
+    cmp -- 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。
+    key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。
+    reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认)
+
+    sort() 函数用于对原列表进行排序，如果指定参数，则使用比较函数指定的比较函数。
+    list.sort(cmp=None, key=None, reverse=False)
+    :return:
+    """
+    a = [1, 6, 8, 11, 9, 1, 8, 6, 8, 7, 8]
+    # for i in range(len(a)):
+    #     for j in range(len(a)-1):
+    #         if a[j]>a[j+1]:
+    #             a[j],a[j+1]=a[j+1],a[j]
+    # print(a)
+    print(sorted(a, reverse=True))
+
+# 取出列表中最大的三个值
+# L1 = [1, 2, 3, 11, 2, 5, 3, 2, 5, 33, 88]
+def demo26():
+    """
+    [start:stop:step] 字符串、列表、元组(tuple)都符合“序列”这一特征然后进行切片,表示为[开始索引:结束索引(不包含该索引的值):步长]
+    :return:
+    """
+    L1 = [1, 2, 3, 11, 2, 5, 3, 2, 5, 33, 88]
+    print(sorted(L1)[-1:-4:-1])
+
+#a = [1, -6, 2, -5, 9, 4, 20, -3] 按列表中的数字绝对值从小到大排序
+def demo27():
+    """
+    abs() 函数返回数字的绝对值。
+    :return:
+    """
+    a = [1, -6, 2, -5, 9, 4, 20, -3]
+    for i in range(len(a)):
+        a[i]=abs(a[i])
+    print(sorted(a))
+
+# b = [“hello”, “helloworld”, “he”, “hao”, “good”]
+# 按list里面单词长度倒叙
+def demo28():
+    b = ["hello", "helloworld", "he", "hao", "good"]
+    print(sorted(b,key=len))
+
+# 将列表中的重复值取出(仅保留第一个)，要求保留原始列表顺序
+# 如a=[3, 2, 1, 4, 2, 6, 1] 输出[3, 2, 1, 4, 6]
+def demo29():
+    a = [3, 2, 1, 4, 2, 6, 1]
+    b=[]
+    for i in a:
+        if i not in b:
+            b.append(i)
+    print(b)
+# a = [1, 3, 5, 7]
+# b = [‘a’, ‘b’, ‘c’, ‘d’]
+# 如何得到[1, 3, 5, 7, ‘a’, ‘b’, ‘c’, ‘d’]
+def demo30():
+    a = [1, 3, 5, 7]
+    b = ["a", "b", "c", "d"]
+    print(a+b)
+
+# 列表a = [1,2,3,4,5], 计算列表成员的平方数，得到[1,4,9,16,25]
+def demo31():
+    a = [1, 2, 3, 4, 5]
+    b = []
+    for i in a:
+        i=i**2
+        b.append(i)
+    print(b)
+# 使用列表推导式，将列表中a = [1, 3, -3, 4, -2, 8, -7, 6]
+# 找出大于0的数，重新生成一个新的列表
+def demo32():
+    a = [1, 3, -3, 4, -2, 8, -7, 6]
+    b=[]
+    for i in a:
+        if i>0:
+            b.append(i)
+    print(b)
+    print([i for i in a if i>0])
+#统计在一个队列中的数字，有多少个正数，多少个负数，如[1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
+def demo33():
+    a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
+    b = c =0
+    for i in a:
+        if i > 0:
+            b+=1
+        elif i<0:
+            c+=1
+    print("正数：",b,"负数：", c)
+# a = [“张三”,”张四”,”张五”,”王二”] 如何删除姓张的
+def demo34():
+    a = ["张三", "张四", "张五", "王二"]
+    print(len(a))
+    for i in range(len(a)-1,-1,-1):
+        print(a[i])
+        if a[i][0]=="张":
+            a.remove(a[i])
+    print(a)
+
 if __name__ == '__main__':
-    demo21(5)
+    demo34()
