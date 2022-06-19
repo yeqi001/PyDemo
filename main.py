@@ -423,12 +423,85 @@ def demo33():
 # a = [“张三”,”张四”,”张五”,”王二”] 如何删除姓张的
 def demo34():
     a = ["张三", "张四", "张五", "王二"]
-    print(len(a))
+    #循环从len(a)-1开始到下标为0时结束，步长-1即倒着循环
+    #当删掉一个元素后，len(a)-1就会减1，此时len(a)-1还是最后一个元素的下标
     for i in range(len(a)-1,-1,-1):
-        print(a[i])
         if a[i][0]=="张":
             a.remove(a[i])
     print(a)
+#有个列表a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8] 使用filter 函数过滤出大于0的数
+def test_35(a):
+    return a>0
+def demo35():
+    """
+    filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，序列的每个元素作为参数传递给函数进行判断，
+    然后返回 True 或 False，最后将返回 True 的元素放到新列表中。
+    function:判断函数
+    iterable:可迭代对象
+    :return:符合条件元素组成的新列表的内存地址
+    """
+    a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
+    b=list(filter(test_35,a))
+    print(b)
+#列表b = [“张三”, “张四”, “张五”, “王二”] 过滤掉姓张的姓名
+def test_36(a):
+    return a[0]!="张"
+def demo36():
+    b = ["张三", "张四", "张五", "王二"]
+    c=list(filter(test_36,b))
+    print(c)
+# 过滤掉列表中不及格的学生
+# a = [
+# {“name”: “张三”, “score”: 66},
+# {“name”: “李四”, “score”: 88},
+# {“name”: “王五”, “score”: 90},
+# {“name”: “陈六”, “score”: 56},
+# ]
+def test_37(a):
+    return a["score"]>=60
+def demo37():
+    b = [{"name": "张三", "score": 66},
+         {"name": "李四", "score": 88},
+         {"name": "王五", "score": 90},
+         {"name": "陈六", "score": 56}]
+    c=list(filter(test_37,b))
+    print(c)
+# 有个列表 a = [1, 2, 3, 11, 2, 5, 88, 3, 2, 5, 33]
+# 找出列表中最大的数，出现的位置，下标从0开始
+def demo38():
+    a = [1, 2, 3, 11, 2, 5, 88, 3, 2, 5, 33]
+    for i in range(len(a)):
+        if a[i]==max(a):
+            print(i)
+#a = ['my', 'skills', 'are', 'poor', 'I', 'am', 'poor', 'I',
+# 'need', 'skills', 'more', 'my', 'ability', 'are',
+# 'so', 'poor']
+# 找出列表中出现次数最多的元素
+def demo39():
+    a = ['my', 'skills', 'are', 'poor', 'I', 'am', 'poor', 'I',
+    'need', 'skills', 'more', 'my', 'ability', 'are',
+    'so', 'poor']
+    b = 0
+    for i in a:
+        if a.count(i)>b:
+            b=a.count(i)
+    for i in a:
+        if a.count(i)==b:
+            print(i)
+            break
+#给定一个整数数组A及它的大小n，同时给定要查找的元素val，
+# 请返回它在数组中的位置(从0开始)，若不存在该元素，返回-1。
+# 若该元素出现多次请返回第一个找到的位置
+# 如 A1=[1, “aa”, 2, “bb”, “val”, 33]
+# 或 A2 = [1, “aa”, 2, “bb”]
+def demo40():
+    A1 = [1, 'aa', 2, 'bb', 'val', 33]
+    if A1.count('val')==0:
+        print("-1")
+    for i in range(len(A1)):
+        if A1[i] == 'val':
+            print(i)
+            break
 
 if __name__ == '__main__':
-    demo34()
+    demo40()
