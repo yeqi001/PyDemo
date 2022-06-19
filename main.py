@@ -348,6 +348,7 @@ def demo25():
     # print(a)
     print(sorted(a, reverse=True))
 
+
 # 取出列表中最大的三个值
 # L1 = [1, 2, 3, 11, 2, 5, 3, 2, 5, 33, 88]
 def demo26():
@@ -358,7 +359,8 @@ def demo26():
     L1 = [1, 2, 3, 11, 2, 5, 3, 2, 5, 33, 88]
     print(sorted(L1)[-1:-4:-1])
 
-#a = [1, -6, 2, -5, 9, 4, 20, -3] 按列表中的数字绝对值从小到大排序
+
+# a = [1, -6, 2, -5, 9, 4, 20, -3] 按列表中的数字绝对值从小到大排序
 def demo27():
     """
     abs() 函数返回数字的绝对值。
@@ -366,72 +368,87 @@ def demo27():
     """
     a = [1, -6, 2, -5, 9, 4, 20, -3]
     for i in range(len(a)):
-        a[i]=abs(a[i])
+        a[i] = abs(a[i])
     print(sorted(a))
+
 
 # b = [“hello”, “helloworld”, “he”, “hao”, “good”]
 # 按list里面单词长度倒叙
 def demo28():
     b = ["hello", "helloworld", "he", "hao", "good"]
-    print(sorted(b,key=len))
+    print(sorted(b, key=len))
+
 
 # 将列表中的重复值取出(仅保留第一个)，要求保留原始列表顺序
 # 如a=[3, 2, 1, 4, 2, 6, 1] 输出[3, 2, 1, 4, 6]
 def demo29():
     a = [3, 2, 1, 4, 2, 6, 1]
-    b=[]
+    b = []
     for i in a:
         if i not in b:
             b.append(i)
     print(b)
+
+
 # a = [1, 3, 5, 7]
 # b = [‘a’, ‘b’, ‘c’, ‘d’]
 # 如何得到[1, 3, 5, 7, ‘a’, ‘b’, ‘c’, ‘d’]
 def demo30():
     a = [1, 3, 5, 7]
     b = ["a", "b", "c", "d"]
-    print(a+b)
+    print(a + b)
+
 
 # 列表a = [1,2,3,4,5], 计算列表成员的平方数，得到[1,4,9,16,25]
 def demo31():
     a = [1, 2, 3, 4, 5]
     b = []
     for i in a:
-        i=i**2
+        i = i ** 2
         b.append(i)
     print(b)
+
+
 # 使用列表推导式，将列表中a = [1, 3, -3, 4, -2, 8, -7, 6]
 # 找出大于0的数，重新生成一个新的列表
 def demo32():
     a = [1, 3, -3, 4, -2, 8, -7, 6]
-    b=[]
-    for i in a:
-        if i>0:
-            b.append(i)
-    print(b)
-    print([i for i in a if i>0])
-#统计在一个队列中的数字，有多少个正数，多少个负数，如[1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
-def demo33():
-    a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
-    b = c =0
+    b = []
     for i in a:
         if i > 0:
-            b+=1
-        elif i<0:
-            c+=1
-    print("正数：",b,"负数：", c)
+            b.append(i)
+    print(b)
+    print([i for i in a if i > 0])
+
+
+# 统计在一个队列中的数字，有多少个正数，多少个负数，如[1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
+def demo33():
+    a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
+    b = c = 0
+    for i in a:
+        if i > 0:
+            b += 1
+        elif i < 0:
+            c += 1
+    print("正数：", b, "负数：", c)
+
+
 # a = [“张三”,”张四”,”张五”,”王二”] 如何删除姓张的
 def demo34():
     a = ["张三", "张四", "张五", "王二"]
-    #循环从len(a)-1开始到下标为0时结束，步长-1即倒着循环
-    #当删掉一个元素后，len(a)-1就会减1，此时len(a)-1还是最后一个元素的下标
-    for i in range(len(a)-1,-1,-1):
-        if a[i][0]=="张":
+    # 循环从len(a)-1开始到下标为0时结束，步长-1即倒着循环
+    # 当删掉一个元素后，len(a)-1就会减1，此时len(a)-1还是最后一个元素的下标
+    for i in range(len(a) - 1, -1, -1):
+        if a[i][0] == "张":
             a.remove(a[i])
     print(a)
-#有个列表a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8] 使用filter 函数过滤出大于0的数
+
+
+# 有个列表a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8] 使用filter 函数过滤出大于0的数
 def test_35(a):
-    return a>0
+    return a > 0
+
+
 def demo35():
     """
     filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，序列的每个元素作为参数传递给函数进行判断，
@@ -441,15 +458,21 @@ def demo35():
     :return:符合条件元素组成的新列表的内存地址
     """
     a = [1, 3, 5, 7, 0, -1, -9, -4, -5, 8]
-    b=list(filter(test_35,a))
+    b = list(filter(test_35, a))
     print(b)
-#列表b = [“张三”, “张四”, “张五”, “王二”] 过滤掉姓张的姓名
+
+
+# 列表b = [“张三”, “张四”, “张五”, “王二”] 过滤掉姓张的姓名
 def test_36(a):
-    return a[0]!="张"
+    return a[0] != "张"
+
+
 def demo36():
     b = ["张三", "张四", "张五", "王二"]
-    c=list(filter(test_36,b))
+    c = list(filter(test_36, b))
     print(c)
+
+
 # 过滤掉列表中不及格的学生
 # a = [
 # {“name”: “张三”, “score”: 66},
@@ -458,50 +481,192 @@ def demo36():
 # {“name”: “陈六”, “score”: 56},
 # ]
 def test_37(a):
-    return a["score"]>=60
+    return a["score"] >= 60
+
+
 def demo37():
     b = [{"name": "张三", "score": 66},
          {"name": "李四", "score": 88},
          {"name": "王五", "score": 90},
          {"name": "陈六", "score": 56}]
-    c=list(filter(test_37,b))
+    c = list(filter(test_37, b))
     print(c)
+
+
 # 有个列表 a = [1, 2, 3, 11, 2, 5, 88, 3, 2, 5, 33]
 # 找出列表中最大的数，出现的位置，下标从0开始
 def demo38():
     a = [1, 2, 3, 11, 2, 5, 88, 3, 2, 5, 33]
     for i in range(len(a)):
-        if a[i]==max(a):
+        if a[i] == max(a):
             print(i)
-#a = ['my', 'skills', 'are', 'poor', 'I', 'am', 'poor', 'I',
+
+
+# a = ['my', 'skills', 'are', 'poor', 'I', 'am', 'poor', 'I',
 # 'need', 'skills', 'more', 'my', 'ability', 'are',
 # 'so', 'poor']
 # 找出列表中出现次数最多的元素
 def demo39():
     a = ['my', 'skills', 'are', 'poor', 'I', 'am', 'poor', 'I',
-    'need', 'skills', 'more', 'my', 'ability', 'are',
-    'so', 'poor']
+         'need', 'skills', 'more', 'my', 'ability', 'are',
+         'so', 'poor']
     b = 0
     for i in a:
-        if a.count(i)>b:
-            b=a.count(i)
+        if a.count(i) > b:
+            b = a.count(i)
     for i in a:
-        if a.count(i)==b:
+        if a.count(i) == b:
             print(i)
             break
-#给定一个整数数组A及它的大小n，同时给定要查找的元素val，
+
+
+# 给定一个整数数组A及它的大小n，同时给定要查找的元素val，
 # 请返回它在数组中的位置(从0开始)，若不存在该元素，返回-1。
 # 若该元素出现多次请返回第一个找到的位置
 # 如 A1=[1, “aa”, 2, “bb”, “val”, 33]
 # 或 A2 = [1, “aa”, 2, “bb”]
 def demo40():
     A1 = [1, 'aa', 2, 'bb', 'val', 33]
-    if A1.count('val')==0:
+    if A1.count('val') == 0:
         print("-1")
     for i in range(len(A1)):
         if A1[i] == 'val':
             print(i)
             break
 
+
+# 给定一个整数数组nums 和一个目标值target ，请你在该数组中找出和为目标值的那两个整数，并返回他
+# 们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+# 示例:
+# 给定nums=[2，7，11，15]，target=9
+# 因为nums[0] + nums[1] =2+7 = 9,所以返回[0， 1]
+def demo41():
+    nums = [2, 7, 11, 15]
+    target = 18
+    k = {}
+    for i in range(len(nums)):
+        for j in range(1, len(nums)):
+            k.update({nums[i] + nums[j]: {i, j}})
+    for a in k.keys():
+        if a == target:
+            print(k[a])
+
+
+# a = [[1,2],[3,4],[5,6]] 如何一句代码得到 [1, 2, 3, 4, 5, 6]
+def demo42():
+    a = [[1, 2], [3, 4], [5, 6]]
+    b = []
+    for i in a:
+        for j in i:
+            b.append(j)
+    print(b)
+
+
+# 二维数组取值(矩阵),有 a = [[“A”, 1], [“B”, 2]] ，如何取出 2
+def demo43():
+    a = [["A", 1], ["B", 2]]
+    print(a[1][1])
+
+
+# a = [“a”, “b”, “c”]
+# b = [1, 2, 3]
+# 如何得到 {‘a’: 1, ‘b’: 2, ‘c’: 3}
+def demo44():
+    a = ["a", "b", "c"]
+    b = [1, 2, 3]
+    c = {}
+    for i in range(len(a)):
+        c.update({a[i]: b[i]})
+    print(c)
+
+
+# 如下列表
+# people = [{“name”:”yoyo”, “age”: 20},{“name”:”admin”, “age”: 28},{“name”:”zhangsan”, “age”: 25}],按年龄age从小到大排序
+def demo45():
+    people = [{"name": "张三", "score": 66},
+              {"name": "李四", "score": 88},
+              {"name": "王五", "score": 90},
+              {"name": "陈六", "score": 56}]
+    print(sorted(people, key=lambda a: a["score"]))
+
+
+# 现有 nums=[2, 5, 7] ，如何在该数据最后插入一个数字 9 ，如何在2后面插入数字0
+def demo46():
+    """
+    insert("索引位置","对象") 函数用于将指定对象插入列表的指定位置。
+    :return:
+    """
+    nums = [2, 5, 7]
+    nums.append(9)
+    nums.insert(1, 0)
+    print(nums)
+
+
+# 有个列表a = [1, 2, 3, 4, 5, 6, 7, 8, 9]如何打乱列表a的顺序,每次得到一个无序列表
+import random
+
+
+def demo47():
+    """
+    random.shuffle(x) 将序列 x 随机打乱位置。
+    :return:
+    """
+    a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    random.shuffle(a)
+    print(a)
+
+
+# 输出1-100除3余1 的数，结果为tuple
+def demo48():
+    """
+    列表是可变对象，而元组是不可变对象
+    :return:
+    """
+    a = []
+    for i in range(1, 101):
+        if i % 3 == 1:
+            a.append(i)
+    print(tuple(a))
+
+
+# 将("a", "b", "c") 和(1, 2, 3)两个tuple转成(1, 2, 3)为key, ("a", "b", "c")为value的字典
+def demo49():
+    """
+    zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的对象
+    """
+    a = ("a", "b", "c")
+    b = (1, 2, 3)
+    c = list(zip(a, b))
+    d = {}
+    for i in c:
+        d.update({i[1]: i[0]})
+    print(d)
+
+
+# 将字典里的值是数值型的转换为字符串，如a = {‘aa’: 11, ‘bb’: 222},得到{‘aa’: ‘11’, ‘bb’: ‘222’}
+def demo50():
+    """
+    items() 方法以列表返回视图对象，是一个可遍历的key/value对,返回的是列表
+    :return:
+    """
+    a = {"aa": 11, "bb": 222}
+    for i in a.items():
+        a.update({i[0]: str(i[1])})
+    print(a)
+
+
+# map函数有个列表a = [1, 2, 3, 4] 计算列表中每个数除以2 取出余数 得到 [1,0,1,0]
+def demo51():
+    a = [1, 2, 3, 4]
+    print(list(map(lambda a: a % 2, a)))
+
+
+# map函数对列表a=[1,3,5],b=[2,4,6]相乘得到[2,12,30]
+def demo52():
+    a = [1, 3, 5]
+    b = [2, 4, 6]
+    print(list(map(lambda a, b: a * b, a, b)))
+
+
 if __name__ == '__main__':
-    demo40()
+    demo51()
