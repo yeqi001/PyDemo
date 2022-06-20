@@ -668,5 +668,123 @@ def demo52():
     print(list(map(lambda a, b: a * b, a, b)))
 
 
+# 两个字典合并a={“A”:1,”B”:2},b={“C”:3,”D”:4}
+def demo53():
+    a = {"A": 1, "B": 2}
+    b = {"C": 3, "D": 4}
+    a.update(b)
+    print(a)
+
+
+# m1={‘a’:1,’b’:2,’c’:1} # 将同样的value的key集合在list里，输出{1:[‘a’,’c’],2:[‘b’]}
+def demo54():
+    a = {"a": 1, "b": 2, "c": 1}
+    b = {}
+    for i, j in a.items():
+        if j not in b:
+            b[j] = [i]
+        else:
+            b[j].append(i)
+    print(b)
+
+
+# d={“name”:”zs”,”age”:18,”city”:”深圳”,”tel”:”1362626627”} 字典根据键从小到大排序
+def demo55():
+    d = {"name": "zs", "age": 18, "city": "深圳", "tel": "1362626627"}
+    a = sorted(d, key=lambda b: b[0])  # a为列表
+    b = {}
+    for i in a:
+        b[i] = d[i]
+    print(b)
+
+
+# a = [2, 3, 8, 4, 9, 5, 6],b = [2, 5, 6, 10, 17, 11]
+# 1.找出a和b中都包含了的元素
+# 2.a或b中包含的所有元素
+# 3.a中包含而集合b中不包含的元素
+import copy
+
+
+def demo56():
+    """
+    a = [2, [3 , 8], 6]
+    赋值:   拷贝的列表随原列表变化而变化；
+    b = a
+    浅拷贝: 当外层元素变化时，拷贝的列表不会随原列表变化而变化；内层元素变化时，浅拷贝才会变化；
+    b = a[:]   b = a.copy()  b = list(a)
+    深拷贝: 无论原列表怎么变化，深拷贝都不会改变。
+    import copy
+    b = copy.deepcopy(a)
+    :return:
+    """
+    a = [2, 3, 8, 4, 9, 5, 6]
+    b = [2, 5, 6, 10, 17, 11]
+    c = []
+    d = copy.deepcopy(b)
+    e = []
+    for i in a:
+        if i in b:
+            c.append(i)
+        if i not in d:
+            d.append(i)
+        if i not in b:
+            e.append(i)
+    print(c, sorted(d), e)
+
+
+# 函数计算10！
+def demo57(a):
+    """
+    递归：自身不断调用自己
+    :return:
+    """
+    if a == 1 or a == 0:
+        return 1
+    else:
+        return a * demo57(a - 1)
+
+
+# 有1、2、3、4数字能组成多少互不相同无重复数的三位数?,分别打印这些三位数的组合
+def demo58():
+    for i in range(1, 5):
+        for j in range(1, 5):
+            for k in range(1, 5):
+                print(i * 100 + j * 10 + k)
+
+
+# a = [11, 2, 33, 1, 5, 88, 3]
+# 冒泡排序：
+# 依次比较两个相邻的元素，如果顺序（如从小到大、首字母从A到Z）
+# 错误就把他们交换过来
+def demo59():
+    a = [11, 2, 33, 1, 5, 88, 3]
+    for i in range(len(a)):
+        for j in range(len(a) - 1):
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+    print(a)
+
+
+# 有一个数据list of dict如下
+# a = [
+# {“yoyo1”: “123456”},
+# {“yoyo2”: “123456”},
+# {“yoyo3”: “123456”},
+# ]
+# 写入到本地一个txt文件，内容格式如下：
+# yoyo1,123456
+# yoyo2,123456
+# yoyo3,123456
+def demo60():
+    a = [{"name1": "张三"},
+         {"name2": "李四"},
+         {"name3": "王五"},
+         {"name4": "陈六"}]
+    with open('../PyDemo/test.txt', 'w', encoding='utf-8') as f:
+        for i in a:
+            for i, j in i.items():
+                f.write("{},{}\n".format(i, j))
+
+
 if __name__ == '__main__':
-    demo51()
+    demo60()
