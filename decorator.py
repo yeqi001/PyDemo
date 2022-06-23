@@ -7,10 +7,12 @@ def log(logfile="11.txt"):
         @wraps(fun)
         def decorator(*args,**kwargs):
             with open('../PyDemo/'+logfile, 'a',encoding='utf-8') as f:
-                f.write('{} was called in {} \n'.format(fun.__name__,time.time()))
+                starttime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                f.write('{} was called in {} \n'.format(fun.__name__,starttime))
                 result = fun(*args,**kwargs)
                 f.write(str(result)+'\n')
-                f.write('{} was end in {} \n'.format(fun.__name__, time.time()))
+                endtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                f.write('{} was end in {} \n'.format(fun.__name__,endtime))
                 return result
         return decorator
     return logging
