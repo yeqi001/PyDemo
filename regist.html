@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+
+        .login-wrapper {
+            background-color: #fff;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 75px 0px 35px 0px;
+        }
+
+        .input-item {
+            margin-left: 10px;
+            width: 278px;
+            height: 35px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 5px 5px 5px 10px;
+            font-size: 15px;
+            outline: none;
+            border-radius: 8px;
+            border: 1px solid #b8b8b8;
+
+        }
+
+        .btn {
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            padding: 16px 11px;
+            width: 94%;
+
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            color: #fff;
+            border-radius: 25px;
+        }
+
+        .reg-content {
+            height: 250px;
+
+            padding-top: 10px;
+            padding-bottom: 15px;
+        }
+        a{
+            text-decoration:none;
+            color: #4e6ef2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="login-wrapper">
+        <div class="header">
+            <h1>用户注册</h1>
+        </div>
+        <div class="reg-content">
+            <form>
+                <p>
+                    <label for="userName" class="lab">用户名</label>
+                    <input id="userName" type="text" class="input-item" name="userName" autocomplete="off" value=""
+                           placeholder="请设置用户名">
+                </p>
+                <p>
+                    <label for="phoneLabel" class="lab">手机号</label>
+                    <input id="phoneLabel" type="text" name="" class="input-item" autocomplete="off" value=""
+                           placeholder="可用于找回密码">
+                </p>
+                <p>
+                    <label for="password" class="lab">密&emsp;码</label>
+                    <input id="password" type="text" name="" class="input-item" autocomplete="off" value=""
+                           placeholder="请设置登录密码">
+                </p>
+            </form>
+        </div>
+        <div class="btn">
+            <a href="#" style="display : block;width: 100%;">注册</a>
+        </div>
+        <div style="margin-top: 30px;text-align: center">
+            <p>已有帐号,&emsp;
+                <a href="login.html" style="cursor: pointer;">立即登录</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
