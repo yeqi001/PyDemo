@@ -1,0 +1,39 @@
+div {
+    width: 300px;
+}
+
+#div1 {
+    margin: 125px 0 0 625px;
+}
+
+#div2 {
+    width: 225px;
+    height: 30px;
+    text-align: right;
+    font-size: 20px;
+}
+
+#div3 {
+    width: 180px;
+    float: left;
+}
+
+#div4 {
+    width: 100px;
+    float: left;
+}
+
+input[type="button"] {
+    width: 50px;
+    height: 35px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#ipt3 {
+    width: 110px;
+}
+
+#ipt4 {
+    height: 75px;
+}
